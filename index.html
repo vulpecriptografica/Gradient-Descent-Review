@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+    <script src="sketch.js"></script>
+  
+  <body style="font-family:didot; background-color: black; color:white">
+    <h2> Gradient Descent, Revisited </h2>
+    <h4> Sophie Vulpe </h4>
+  <h3 style = > Introduction </h3>
+    <p>
+      Let's revisit the idea of gradient descent, this time with greater focus on its mathematical roots.
+    </p>
+  <p style = "color:white;">
+    Say that we have some multivariable function <i> F(x) </i> that's defined and differentiable in the neighborhood of some point <i> a </i>. The gradient of <i>F</i>, <i> &nabla; F </i>, is a function that encodes all partial derivatives of <i> F </i>. It tells us how much <i> F </i> is changing. The direction of steepest descent from the point <i> a </i> is in the direction of 
+    <i> -&nabla; F(a) </i>. Manipulating our familiar friend <i> y= mx+b </i>, we may derive an expression for the gradient descent equation: <i> x<sub>n+1</sub> = x<sub>n</sub> - k&nabla; F(a) </i>, where <i> k </i> is our step size, called the <i> learning rate </i>. Starting at a given point, we can eventually get to another special point on <i> F </i> where the gradient is 0: the global minimum of <i> F </i>. When <i> &nabla; F </i> is 0, the gradient descent algorithm stops updating.
+    <br> <br>
+    But wait! What if our cost function has local minima in addition to a global minimum? What if we have saddle points? Excellent questions, dear reader. These are both important problems that face ML engineers. Learning how to fix these problems is beyond the scope of this webpage, but I have attached some wonderful and relevant memes.
+    </p>
+   <p>
+    This is exactly why gradient descent is useful! Often, but not always, we want to minimize our <i> cost function. </i> The cost function is the average of the <i> loss function </i> evaluated across all training samples (one epoch). Recall that the loss function is the error of the machine learning model for one training sample. By minimizing our cost function, we minimize the total error of the ML model and thus make it as accurate as possible in its predictions.
+    </p>
+    
+    <p style = "color:white;">
+    Here's a visual representation of gradient descent. The black line traces the gradient descent path down to the minimum of the function.
+    </p>
+  <img src = "https://miro.medium.com/max/450/1*jeMxJLZz-o5xniDMKqcTAg.jpeg" class = "center">
+  
+   <h3 > The Learning Rate</h3>
+      <p>
+    The learning rate, as you learned above, is the step size in our gradient descent equation. As the name suggests, it can be adjusted to change how quickly gradient descent reaches the minimum of the cost function, and thus how quickly the machine "learns." Adjusting the learning rate is a delicate process. Too small, and the model may take an unnecessarily long time to learn. Too big, and the model may overshoot the minimum and thus be less accurate than we would like.
+    </p>
+  
+  <h3 style = "color:white"> Other Applications of Gradient Descent </h3>
+     <p style = "color:white;">
+    One of the most important applications of gradient descent is in neural networks (NN). In NN, the cost function is used to update the weights of the network. We can view a neural network as one big, complex function that relies on weights, biases, and activation functions. It produces a model output. We're trying to minimize the difference between this model output and the target output, which is the actual output. We evaluate the error based on the differences between these two values, calculate the loss or the cost, apply gradient descent to one of those two functions, and adjust our parameters (weights and biases) accordingly. 
+       <br> <br>
+  There are three main types of gradient descent used in NNs. 
+       
+       <br> <br> Batch gradient descent is the most common type, and it is exactly the process we described above, except we apply gradient descent on the cost function instead of the loss function, so we update the weights after training the model on all of the samples once.
+       <br> <br>
+       Mini-batch gradient descent uses the same technique as batch gradient descent, but the model updates the parameters after evaluating select batches of the training set instead of the entire epoch. 
+       <br> <br>
+       Stochastic gradient descent (SGD) updates the parameters after an individual sample from the training set has been run through the model. It is especially useful when dealing with large training data sets, because going through an epoch and then applying gradient descent to update the parameters can be time-costly. Updating weights after running only a single sample through the model is much quicker. In SGD, the order of the samples in the training data set must be randomized. This process creates a wacky-looking cost function, but it also helps prevent the gradient descent algorithm from getting stuck in a certain location. 
+       <br> <br>
+       The statistics enthusiasts out there will be excited to learn that gradient descent also finds application in linear regression. <a href = "https://towardsdatascience.com/linear-regression-using-gradient-descent-97a6c8700931"> See this link for more info about applications of gradient descent to linear regression. </a>
+       
+       <br> <br> Now onto some memes!
+    </p>
+  
+    
+ <h3 style = "color:white"> Memes </h3>
+    <p style = "color:white">
+    Enjoy some high quality ML memes :) 
+      <br> <br>
+      
+      <img src = "https://i.redd.it/9euoe42zwj641.jpg" class = "center">
+      <br>
+      <img src = "https://i.redd.it/sqbl3qp120a21.png" class = "center">
+      <br>
+      <img src = "https://i.redd.it/qrxyr8t2m1u51.jpg" class = "center">
+    
+   </p>
+
+  <h3 style = "color:white"> Author's Note</h3>
+    <p> I found this exercise to be extremely helpful in refreshing and deepening my own knowledge of gradient descent. Before making this page I knew the general sketch of gradient descent and how it was helpful in linear regression and neural networks, but I didn't know some of the specifics, like the benefits of SGD vs. batch gradient descent, for example. 
+      <br> <br>
+      What have you directly observed?
+      <br> <br>
+      Though Shiffman's videos provided a visualization of gradient descent in its application to gradient descent, I didn't get a lot out of seeing it. Looking for other representations of gradient descent, like the picture I attached on this webpage, proved to be more helpful for my understanding. 
+<br> <br>
+What do you think?
+<br> <br>
+I certainly think that gradient descent is a powerful tool for operating NNs. It's beautiful to me that we can use a continuous function to control a discrete model. 
+<br> <br>
+What do you understand?
+       <br> <br>
+      I can quite confidently say that I understand everything I wrote down on this page. Knowing multivariable calculus helped significantly with my understanding of the mathematical material; otherwise, there would be been a steeper learning curve for me. I tried to clarify some of the math for my peers, and I hope I helped!
+<br><br>
+What are you trying to learn more about, or what would you like to understand better?
+ <br> <br>
+      I would like to learn more about how we handle running into local minima and saddle points in gradient descent algorithms. I'd also like to code some gradient descent applications to NN myself.
+      <br> <br>
+    </p>
+    
+  <h3 style = "color:white"> Sources </h3>
+    
+    Here are some of the sources I used to refresh my knowledge of gradient descent: 
+    <ul>
+    <li> <a href="https://machinelearningmastery.com/gradient-descent-for-machine-learning/"> An overview of gradient descent </a> </li>
+      <li> <a href="https://towardsdatascience.com/understanding-the-mathematics-behind-gradient-descent-dde5dc9be06e"> The mathematics of gradient descent </a> </li>
+   <li> <a href="https://machinelearningmastery.com/gentle-introduction-mini-batch-gradient-descent-configure-batch-size/"> Mini-batch gradient descent</a> </li>
+    </ul>
+   <h3 style = "color:white"> Additional Resources </h3>
+    And here are some additional resources that you can use to learn more about the fine details of gradient descent. 
+  <ul>
+    <li> <a href="https://codesandbox.io/s/gradient-descent-uczfi?file=/package.json"> This visualization of gradient descent </a> </li>
+      <li> <a href="https://towardsdatascience.com/gradient-descent-algorithm-and-its-variants-10f652806a3"> Variants of gradient descent and bringing in the second derivative </a> </li>
+   <li> <a href="https://ruder.io/optimizing-gradient-descent/"> Different gradient-based descent algorithms, such as Momentum, Adam, and Adagrad </a> </li>
+    </ul>
+    
+  
+  </body>
+  <style>
+  
+    h2 {text-align: center;}
+    h3 {text-align: center;}
+    h4 {text-align: center;}
+    
+    body {text-align: justify;}
+    
+    .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+    a {color: white;}
+    
+ 
+  </style>
+</html>
