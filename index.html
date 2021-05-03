@@ -17,7 +17,7 @@
     </p>
   <p style = "color:white;">
     Say that we have some multivariable function <i> F(x) </i> that's defined and differentiable in the neighborhood of some point <i> a </i>. The gradient of <i>F</i>, <i> &nabla; F </i>, is a function that encodes all partial derivatives of <i> F </i>. It tells us how much <i> F </i> is changing. The direction of steepest descent from the point <i> a </i> is in the direction of 
-    <i> -&nabla; F(a) </i>. Manipulating our familiar friend <i> y= mx+b </i>, we may derive an expression for the gradient descent equation: <i> x<sub>n+1</sub> = x<sub>n</sub> - k&nabla; F(a) </i>, where <i> k </i> is our step size, called the <i> learning rate </i>. Starting at a given point, we can eventually get to another special point on <i> F </i> where the gradient is 0: the global minimum of <i> F </i>. When <i> &nabla; F </i> is 0, the gradient descent algorithm stops updating.
+    <i> -&nabla; F(a) </i>. Manipulating our familiar friend <i> y= mx+b </i>, we may derive an expression for the gradient descent equation: <i> x<sub>n+1</sub> = x<sub>n</sub> - &eta;&nabla; F(a) </i>, where <i> &eta; </i> is our step size, called the <i> learning rate </i>. Starting at a given point, we can eventually get to another special point on <i> F </i> where the gradient is 0: the global minimum of <i> F </i>. When <i> &nabla; F </i> is 0, the gradient descent algorithm stops updating.
     <br> <br>
     But wait! What if our cost function has local minima in addition to a global minimum? What if we have saddle points? Excellent questions, dear reader. These are both important problems that face ML engineers. Learning how to fix these problems is beyond the scope of this webpage, but I have attached some wonderful and relevant memes.
     </p>
@@ -32,7 +32,7 @@
   
    <h3 > The Learning Rate</h3>
       <p>
-    The learning rate, as you learned above, is the step size in our gradient descent equation. As the name suggests, it can be adjusted to change how quickly gradient descent reaches the minimum of the cost function, and thus how quickly the machine "learns." Adjusting the learning rate is a delicate process. Too small, and the model may take an unnecessarily long time to learn. Too big, and the model may overshoot the minimum and thus be less accurate than we would like.
+        The learning rate, <i> &eta; </i> as you learned above, is the step size in our gradient descent equation. As the name suggests, it can be adjusted to change how quickly gradient descent reaches the minimum of the cost function, and thus how quickly the machine "learns." Adjusting the learning rate is a delicate process. Too small, and the model may take an unnecessarily long time to learn. Too big, and the model may overshoot the minimum and thus be less accurate than we would like.
     </p>
   
   <h3 style = "color:white"> Other Applications of Gradient Descent </h3>
